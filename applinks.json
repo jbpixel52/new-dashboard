@@ -1,0 +1,47 @@
+{
+  "apps": [
+    
+     {"appname": "sonarr",
+      "appurl": "http://sonarr.jbpixel.xyz",
+      "appdescription": "automate series",
+      "apptype":"app"}
+  ,
+    {
+      "appname": "Flame",
+      "appurl": "http://dashboard.jbpixel.xyz",
+      "appdescription": "personal dashboard",
+      "apptype":"app"
+    },
+    {
+      "appname":"Radarr",
+      "appurl":"https://radarr.jbpixel.xyz",
+      "appdescription":"Automate movies",
+      "apptype":"app"
+    },
+    {
+      "appname":"Plex",
+      "appurl":"https://plex.tv",
+      "appdescription":"Media Server",
+      "apptype":"app"
+    },
+    {
+      "appname":"tautulli",
+      "appurl":"http://tautulli.jbpixel.xyz",
+      "appdescription":"Monitor Plex status and stats.",
+      "apptype":"app"
+    },
+    {
+      "appname":"Google",
+      "appurl":"https://google.com",
+      "appdescription":"Error testing",
+      "apptype":"bookmark"
+    },
+  {
+    "appname":"Test",
+    "appurl":"httpdass://plexy.jbpixel.xyz",
+    "appdescription":"debug description message ..... dot",
+    "apptype":"bookmark"
+  }
+
+  ]
+}
