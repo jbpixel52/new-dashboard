@@ -2,7 +2,7 @@ import { Box, Grid } from 'grommet';
 import { useState } from 'react';
 import data from '../../applinks.json'
 import AppCard from '../AppCard/AppCard';
-
+import styles from './AppGrid.module.css'
 
 
 
@@ -23,5 +23,5 @@ export default function AppGrid() {
         AppCard(item)
     );
     console.log(boxes);
-    return (<div>{boxes}</div>);
+    return (<div className={styles.AppGrid}>{boxes}</div>);
 }

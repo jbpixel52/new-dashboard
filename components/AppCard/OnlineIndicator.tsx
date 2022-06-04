@@ -14,15 +14,7 @@ type AppStatus = {
     logic : boolean,
 
 }
-
-async function pingApp(props: App, status: AppStatus){
-
-    status.status = await axios({
-        url: `{url goes here}`,
-        method: "GET"
-      });
-
-
+function pingApp(props: App, status: AppStatus){
     status.status = new Response(props.appurl).status;
     console.log('status is '+status.status );
     switch (status.status) {

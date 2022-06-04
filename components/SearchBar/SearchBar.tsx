@@ -32,9 +32,7 @@ export default function SearchBar() {
     console.log('LOGGING var greeting   ' + greeting);
     const element = (
         <Box
-            direction="row"
-            border={{ color: 'brand', size: 'large' }}
-            pad="medium"
+            direction="row" pad={"medium"}
         >     <TextInput
                 onKeyPress={(e) => {
                     if (e.key === "Enter" && search.length > 0) {
@@ -52,8 +50,7 @@ export default function SearchBar() {
                 className="searchbar"
                 value={search}
             />
-            < Box pad="small" background="dark-3" />
-            <Box pad="medium" background="light-3" />
+
         </Box>
     );
     return element;

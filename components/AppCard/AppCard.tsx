@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Card, Text, Box, CardHeader, CardFooter, Button, CardBody, Grommet, Anchor, Image } from 'grommet';
 import AppIcons from '../AppIcons/AppIcons';
 import OnlineIndicator from './OnlineIndicator';
-
+import styles from './AppCard.module.css'
 
 
 type App = {
@@ -15,9 +15,9 @@ type App = {
 
 export default function AppCard(props: App) {
     const element = (
-        <Card height="small" width="small" background="light-1" gridArea='main'>
+        <Card className='AppCard' width="small" background="light-1" gridArea='main'>
             <CardHeader>
-                <Box height="xxsmall" width="xxsmall"><Image
+                <Box><Image
                     fit="cover"
                     src={AppIcons(props)}
                     alt={props.appname}
@@ -28,7 +28,7 @@ export default function AppCard(props: App) {
                 <Text>{props.appname}</Text>
                 {OnlineIndicator(props)}
             </CardHeader>
-            <CardBody>
+            <CardBody pad={"none"} margin={"none"} className='CardBody'>
                 {props.appdescription}
             </CardBody>
             <CardFooter>
