@@ -3,7 +3,7 @@ import { Card, Text, Box, CardHeader, CardFooter, Button, CardBody, Grommet, Anc
 import AppIcons from '../AppIcons/AppIcons';
 import OnlineIndicator from './OnlineIndicator';
 import styles from './AppCard.module.css'
-
+import color from '../../pages/api/color'
 
 type App = {
     appname: string,
@@ -14,9 +14,10 @@ type App = {
 
 
 export default function AppCard(props: App) {
+    ()=> color(AppIcons(props));
     const element = (
-        <Card className='AppCard' width="small" background="light-1" gridArea='main'>
-            <CardHeader>
+        <Card className='AppCard' width="small" background="light-1" gridArea='main' >
+            <CardHeader align='center' direction='column'>
                 <Box><Image
                     fit="cover"
                     src={AppIcons(props)}
@@ -25,12 +26,12 @@ export default function AppCard(props: App) {
 
                 />
                 </Box>
-                <Text>{props.appname}</Text>
-                {OnlineIndicator(props)}
+                {<Text>{props.appname}</Text>}
+                {/* {OnlineIndicator(props)} */}
             </CardHeader>
-            <CardBody pad={"none"} margin={"none"} className='CardBody'>
+            {/* <CardBody pad={"none"} margin={"none"} className='CardBody'>
                 {props.appdescription}
-            </CardBody>
+            </CardBody> */}
             <CardFooter>
                 <Anchor href={props.appurl} label={props.appurl.replace(/(^http:\/\/|https:\/\/)/i, "")} />
             </CardFooter>
