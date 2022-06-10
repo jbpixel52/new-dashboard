@@ -3,7 +3,7 @@ import { Card, Text, Box, CardHeader, CardFooter, Button, CardBody, Grommet, Anc
 import AppIcons from '../AppIcons/AppIcons';
 import OnlineIndicator from './OnlineIndicator';
 import styles from './AppCard.module.css'
-import color from '../../pages/api/color'
+import color from '../colors/color'
 
 type App = {
     appname: string,

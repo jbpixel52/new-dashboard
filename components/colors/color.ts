@@ -5,7 +5,7 @@ prominent('js-logo.jpg', { amount: 1 }).then(color => {
 })
 
 export default async function ProminentColor(image_path : String){
-    const color =  await prominent('js-logo.jpg', { amount: 1, format:'hex'});
+    const color = await prominent(image_path, { amount: 1, format:'hex'});
     console.log('${color} ='+ color);
-    return color[0];
+    return color;
 }
