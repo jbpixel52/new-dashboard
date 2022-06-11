@@ -6,20 +6,20 @@ type App = {
     appdescription: string,
 }
 export default function getIcon(props: App) {
-    const responseurl : String =            "https://raw.githubusercontent.com/walkxhub/dashboard-icons/master/png/" +
-    props.appname.toLowerCase() +
-    ".png"
+    const responseurl: string = "https://raw.githubusercontent.com/walkxhub/dashboard-icons/master/png/" +
+        props.appname.toLowerCase() +
+        ".png";
+
+    const fallback_response: string = "https://github.com/google/material-design-icons/blob/master/png/alert/error/materialiconsround/48dp/2x/round_error_black_48dp.png";
     if (
-        new Response( responseurl.toString()
- 
-        ).status === 200
+        new Response(responseurl).status === 200
     ) {
         return responseurl;
     }
     if (new Response(props.appurl + "/favicon.ico").status === 200) {
-        const imageurl: String = props.appurl.toLowerCase() + "/favicon.ico"
+        const imageurl: string = props.appurl.toLowerCase() + "/favicon.ico";
         return imageurl;
     }
-    return "https://github.com/google/material-design-icons/blob/master/png/alert/error/materialiconsround/48dp/2x/round_error_black_48dp.png";
+    return fallback_response;
 
 }

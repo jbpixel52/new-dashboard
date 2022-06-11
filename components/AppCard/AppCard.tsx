@@ -3,20 +3,34 @@ import { Card, Text, Box, CardHeader, CardFooter, Button, CardBody, Grommet, Anc
 import AppIcons from '../AppIcons/AppIcons';
 import OnlineIndicator from './OnlineIndicator';
 import styles from './AppCard.module.css'
-import color from '../colors/color'
+//import color from '../colors/color'
+import { prominent } from 'color.js'
 
 type App = {
     appname: string,
-    appurl: string,
+    appurl:string,
     appdescription: string,
     apptype: string,
 }
 
 
 export default function AppCard(props: App) {
-    ()=> color(AppIcons(props));
+    const [bgColor, setbgColor]=useState('white');
+    const [icon,setIcon]=useState(AppIcons(props));
+    useEffect(()=>{
+        const color =  prominent(icon, { amount: 1, format:'hex'});
+        console.log('${color} ='+ color);
+        color.then(value=>{
+            console.log(value);
+            setbgColor(value);
+        }).catch(err=>{
+            console.log(err);
+        });
+        
+    },[]);
+
     const element = (
-        <Card className='AppCard' width="small" background="light-1" gridArea='main' >
+        <Card className='AppCard' width="small" background={bgColor} gridArea='main' >
             <CardHeader align='center' direction='column'>
                 <Box><Image
                     fit="cover"
