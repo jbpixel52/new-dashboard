@@ -35,13 +35,6 @@
       "appurl":"https://google.com",
       "appdescription":"Error testing",
       "apptype":"bookmark"
-    },
-  {
-    "appname":"Test",
-    "appurl":"httpdass://plexy.jbpixel.xyz",
-    "appdescription":"debug description message ..... dot",
-    "apptype":"bookmark"
-  }
-
+    }
   ]
 }

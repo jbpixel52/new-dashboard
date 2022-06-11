@@ -30,14 +30,14 @@ export default function AppCard(props: App) {
     },[]);
 
     const element = (
-        <Card className='AppCard' width="small" background={bgColor} gridArea='main' >
+        <Card className='AppCard' background={bgColor} gridArea='main' width={"xsmall"}>
             <CardHeader align='center' direction='column'>
-                <Box><Image
+                <Box 
+                ><Image
                     fit="cover"
                     src={AppIcons(props)}
                     alt={props.appname}
-                    margin="xxsmall"
-
+                    margin="small"
                 />
                 </Box>
                 {<Text>{props.appname}</Text>}
@@ -46,9 +46,9 @@ export default function AppCard(props: App) {
             {/* <CardBody pad={"none"} margin={"none"} className='CardBody'>
                 {props.appdescription}
             </CardBody> */}
-            <CardFooter>
+            {/* <CardFooter>
                 <Anchor href={props.appurl} label={props.appurl.replace(/(^http:\/\/|https:\/\/)/i, "")} />
-            </CardFooter>
+            </CardFooter> */}
         </Card>
     );
     return element
