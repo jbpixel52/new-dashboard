@@ -5,7 +5,9 @@ import App from '../../pages/_app';
 
 
 
-const greetings: string[] = ['Hello', 'Wassup', 'Good Morning', 'Hi', 'How\'s it going', 'Hell-o'];
+const greetings: string[] = ['Hello ', 'Wassup ', 'Good Morning ', 'Hi', 'How\'s it going ', 'Hell-o '];
+var randomEmoji = require('random-unicode-emoji');
+
 type Greeting = {
   placeholder: string,
   day: string
@@ -73,7 +75,7 @@ type App = {
 
 export default function SearchBar() {
   const [search, setsearch] = useState('')
-  const [greeting, setgreeting] = useState(getRandomGreeting)
+  const [greeting, setgreeting] = useState(getRandomGreeting())
   return (
     <Autocomplete
       freeSolo
@@ -81,7 +83,8 @@ export default function SearchBar() {
       sx={{ width: 300 }}
       options={data.apps.map((app: App) => app.appname)}
       
-      renderInput={(params) => <TextField {...params} label="App"
+      renderInput={(params) => <TextField {...params} label={greeting+randomEmoji.random({count: 1})
+    }
         onKeyPress={(e) => {
           if (e.key === "Enter" && search.length > 0) {
             console.log("pressed ENTER");

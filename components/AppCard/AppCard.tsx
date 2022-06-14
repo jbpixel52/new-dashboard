@@ -7,6 +7,8 @@ import { useTheme } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import style from '../AppCard/AppCard.module.css'
 import { CardActionArea, CardMedia } from '@mui/material';
+import { appendFile } from 'fs';
+import Link from 'next/link';
 
 type App = {
     appname: string,
@@ -75,6 +77,8 @@ export default function AppCard(props: App) {
     }, []);
 
     return (
+        <Link href={props.appurl} as={props.appurl} passHref>
+
         <Card sx={{ display: 'flex', bgcolor: bgColor, padding: 2 }} className={style.AppCard}>
             <CardMedia
                 component="img"
@@ -83,5 +87,6 @@ export default function AppCard(props: App) {
                 alt="app icon"
             />
         </Card>
+        </Link>
     );
 }

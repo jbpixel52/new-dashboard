@@ -33,13 +33,13 @@
   width: 100vw;
   height: 100vh;
   justify-self: center;
-  background: rgba(0, 0, 0, 0.733);
-  box-shadow: 1rem 1rem 3rem 0 rgba(25, 25, 26, 0.463);
-  backdrop-filter: blur(9px);
-  -webkit-backdrop-filter: blur(5px);
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
 }
 
-
+.IconButtons{
+  padding: 3rem;
+}
 .paper {
   margin: 1rem;
   display: flex;
