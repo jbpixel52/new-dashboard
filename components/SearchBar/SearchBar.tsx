@@ -19,16 +19,16 @@ function getRndInteger(min: number, max: number) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-// function getDay() {
-//     let date: Date = new Date();
-//     let day: Number = date.getDay()
-//     console.log(date);
-//     return date
-// }
+function getDay() {
+  let date: Date = new Date();
+  let day: Number = date.getDay()
+  console.log(date);
+  return date
+}
 
-// function searchFunc(query: string) {
-//     return "https://google.com/search?q=" + query;
-// }
+function searchFunc(query: string) {
+  return "https://google.com/search?q=" + query;
+}
 // export default function SearchBar() {
 //     const [search, setsearch] = useState('')
 //     const [greeting, setgreeting] = useState(getRandomGreeting)
@@ -72,13 +72,24 @@ type App = {
 // );
 
 export default function SearchBar() {
+  const [search, setsearch] = useState('')
+  const [greeting, setgreeting] = useState(getRandomGreeting)
   return (
     <Autocomplete
-      freeSolo={true}
+      freeSolo
       id="searchBarr"
       sx={{ width: 300 }}
       options={data.apps.map((app: App) => app.appname)}
-      renderInput={(params) => <TextField {...params} label="App" />}
+      
+      renderInput={(params) => <TextField {...params} label="App"
+        onKeyPress={(e) => {
+          if (e.key === "Enter" && search.length > 0) {
+            console.log("pressed ENTER");
+            window.location.href = searchFunc(search);
+
+          }
+        }}
+      />}
     />
   );
 }

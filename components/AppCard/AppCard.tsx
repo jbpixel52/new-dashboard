@@ -79,37 +79,21 @@ export default function AppCard(props: App) {
 
     }, []);
 
-
-    const card = (
-        <React.Fragment>
-            <CardActionArea>
-            <Card sx={{ display: 'flex' }}>
-
-                <Box sx={{ display: 'flex', flexDirection: 'column' }}>            
-                <CardContent>
-                    <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>{props.apptype}
-                    </Typography>
-                    <Typography variant="h5" component="div">
-                        {props.appname}
-                    </Typography>
-                    <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                    </Typography>
-                    <Typography variant="body2">
-                        <br />
-                        {removeHTTPfromURL(props.appurl)}
-                    </Typography>
-                </CardContent></Box>
-                <CardMedia
-        component="img"
-        sx={{width:'md'}}
-        image={AppIcons(props)}
-        alt="App Icon Image alt"
-      />
-    </Card>
-
-            </CardActionArea>
-        </React.Fragment>
+    return (
+      <Card sx={{ display: 'flex', bgcolor:bgColor, padding:2}}>
+        {/* <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+          <CardContent sx={{ flex: '1 0 auto' }}>
+            <Typography component="div" variant="h5">
+                {props.appname}
+            </Typography>
+          </CardContent>
+        </Box> */}
+        <CardMedia
+          component="img"
+          sx={{ width: 100}}
+          image={AppIcons(props)}
+          alt="app icon"
+        />
+      </Card>
     );
-
-    return card;
-}
+  }
