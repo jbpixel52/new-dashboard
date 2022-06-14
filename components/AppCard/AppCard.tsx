@@ -4,13 +4,8 @@ import OnlineIndicator from './OnlineIndicator';
 import { prominent } from 'color.js'
 import Image from 'next/image'
 import { useTheme } from '@mui/material/styles';
-import ReactDOM from 'react-dom';
 import Card from '@mui/material/Card';
-import Box from '@mui/material/Box';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+import style from '../AppCard/AppCard.module.css'
 import { CardActionArea, CardMedia } from '@mui/material';
 
 type App = {
@@ -80,20 +75,13 @@ export default function AppCard(props: App) {
     }, []);
 
     return (
-      <Card sx={{ display: 'flex', bgcolor:bgColor, padding:2}}>
-        {/* <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-          <CardContent sx={{ flex: '1 0 auto' }}>
-            <Typography component="div" variant="h5">
-                {props.appname}
-            </Typography>
-          </CardContent>
-        </Box> */}
-        <CardMedia
-          component="img"
-          sx={{ width: 100}}
-          image={AppIcons(props)}
-          alt="app icon"
-        />
-      </Card>
+        <Card sx={{ display: 'flex', bgcolor: bgColor, padding: 2 }} className={style.AppCard}>
+            <CardMedia
+                component="img"
+                sx={{ width: 50, height:50 }}
+                image={AppIcons(props)}
+                alt="app icon"
+            />
+        </Card>
     );
-  }
+}

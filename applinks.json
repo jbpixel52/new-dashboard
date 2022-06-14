@@ -31,6 +31,12 @@
       "apptype":"app"
     },
     {
+      "appname":"Uptime-Kuma",
+      "appurl":"http://uptime.jbpixel.xyz",
+      "appdescription":"Monitor uptime",
+      "apptype":"app"
+    },
+    {
       "appname":"Google",
       "appurl":"https://google.com",
       "appdescription":"Error testing",

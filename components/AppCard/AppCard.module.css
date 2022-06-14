@@ -1,1 +1,9 @@
 
+.AppCard{
+    border-radius: 1rem;
+    justify-self: center;
+    align-content: center;
+    justify-content: center;
+    align-self: center;
+    align-items: center;
+}

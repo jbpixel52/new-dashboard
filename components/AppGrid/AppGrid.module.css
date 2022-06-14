@@ -1,7 +1,13 @@
 .AppGrid{
     display: flex;
     flex-wrap: wrap;
-    width: 80vw;
+    width: fit-content;
+    padding-top: 10rem;
     height: fit-content;
     gap: 2vw;
+    justify-self: center;
+    align-content: center;
+    justify-content:space-between;
+    align-self: center;
+    align-items: center;
 }
