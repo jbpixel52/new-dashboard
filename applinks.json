@@ -35,12 +35,6 @@
       "appurl":"http://uptime.jbpixel.xyz",
       "appdescription":"Monitor uptime",
       "apptype":"app"
-    },
-    {
-      "appname":"Google",
-      "appurl":"https://google.com",
-      "appdescription":"Error testing",
-      "apptype":"bookmark"
     }
   ]
 }

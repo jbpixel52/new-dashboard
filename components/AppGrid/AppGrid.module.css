@@ -2,7 +2,8 @@
     display: flex;
     flex-wrap: wrap;
     width: fit-content;
-    padding-top: 10rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
     height: fit-content;
     gap: 2vw;
     justify-self: center;

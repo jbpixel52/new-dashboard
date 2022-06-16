@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Autocomplete, TextField } from '@mui/material';
 import data from '../../applinks.json'
-import App from '../../pages/_app';
-
-
+import type App from '../Types/App';
 
 const greetings: string[] = ['Hello ', 'Wassup ', 'Good Morning ', 'Hi', 'How\'s it going ', 'Hell-o '];
 var randomEmoji = require('random-unicode-emoji');
@@ -31,60 +29,28 @@ function getDay() {
 function searchFunc(query: string) {
   return "https://google.com/search?q=" + query;
 }
-// export default function SearchBar() {
-//     const [search, setsearch] = useState('')
-//     const [greeting, setgreeting] = useState(getRandomGreeting)
-
-//     console.log('LOGGING var greeting   ' + greeting);
-//     const element = (
-//         <Box
-//             direction="row" pad={"medium"}
-//         >     <TextInput
 //                 onKeyPress={(e) => {
 //                     if (e.key === "Enter" && search.length > 0) {
 //                         console.log("pressed ENTER");
 //                         window.location.href = searchFunc(search);
 
-//                     }
-//                 }}
-//                 type="text"
-//                 placeholder={greeting}
-//                 onChange={(e) => {
-//                     setsearch(e.target.value);
-//                     setgreeting(greeting);
-//                 }}
-//                 className="searchbar"
-//                 value={search}
-//             />
-
-//         </Box>
-//     );
-//     return element;
-// }
-
-type App = {
-  appname: string,
-  apptype: string,
-  appurl: string,
-  appdescription: string,
-}
-// const Apps : [] = new Array();
-// const boxes: [] = data.apps.map((item: App, i) =>
-
-// );
-
 export default function SearchBar() {
   const [search, setsearch] = useState('')
-  const [greeting, setgreeting] = useState(getRandomGreeting())
+  const [greeting, setgreeting] = useState('')
+  
+  useEffect(()=>{
+    setgreeting(`${getRandomGreeting()} ${randomEmoji.random({count:1})}`);
+  },[]);
+
+
   return (
     <Autocomplete
       freeSolo
       id="searchBarr"
       sx={{ width: 300 }}
-      options={data.apps.map((app: App) => app.appname)}
+      options={data.apps.map((app) => app.appname)}
       
-      renderInput={(params) => <TextField {...params} label={greeting+randomEmoji.random({count: 1})
-    }
+      renderInput={(params) => <TextField {...params} label={greeting}
         onKeyPress={(e) => {
           if (e.key === "Enter" && search.length > 0) {
             console.log("pressed ENTER");

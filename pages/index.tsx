@@ -10,9 +10,11 @@ import Link from 'next/link'
 import SettingsIcon from '@mui/icons-material/Settings';
 import title from 'next'
 import FloatingActionButtons from '../components/FAB/FAB'
+import Spline from '@splinetool/react-spline';
+
 const styles = {
   paperContainer: {
-    backgroundImage: `url(${'https://images.unsplash.com/photo-1654721661424-0d3df2b042db?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2264&q=80'})`
+    backgroundImage: `url(${'https://images.unsplash.com/photo-1571646305816-f155cec7e16e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80'})`
   }
 };
 
@@ -20,24 +22,26 @@ const styles = {
 const Home: NextPage = () => {
 
   return (
-    <Box style={styles.paperContainer} className={style.main}>
-      <Box className={style.blur}>
-
+    <main className={style.mainStack}>
         <Head>
-        <title>Dashboard</title>
+          <title>Dashboard</title>
 
         </Head>
+    <Box style={styles.paperContainer} className={style.main}>
+      <Spline scene="https://prod.spline.design/KRWPcv2wBCCbH11p/scene.splinecode" className={style.SplineBackground} />
+
+        {/* <Box className={style.blur}/>   */}
+
+
         <Container className={style.Container}>
           {SearchBar()}
           {AppGrid()}
           {FloatingActionButtons()}
-
-
-
-
         </Container>
 
-      </Box></Box>
+        
+       </Box>
+      </main>
   )
 }
 

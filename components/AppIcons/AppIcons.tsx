@@ -1,10 +1,6 @@
+import type  App from '../Types/App'
 
-type App = {
-    appname: string,
-    apptype: string,
-    appurl: string,
-    appdescription: string,
-}
+
 export default function getIcon(props: App) {
     const responseurl: string = "https://raw.githubusercontent.com/walkxhub/dashboard-icons/master/png/" +
         props.appname.toLowerCase() +

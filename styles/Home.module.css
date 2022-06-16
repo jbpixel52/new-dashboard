@@ -1,12 +1,29 @@
 .Container {
   display: flex;
   flex-direction: column;
-  background-repeat: repeat;
   justify-self: center;
   align-content: center;
   justify-content: center;
   align-self: center;
   align-items: center;
+  display: flex;
+  justify-self: center;
+  align-content: center;
+  justify-content: space-evenly;
+  align-self: center;
+  align-items: center;
+  background: cover;
+  width: auto;
+  height: auto;
+  justify-self: center;
+  backdrop-filter: blur(5px);
+/* top | right | bottom | left */
+  padding: 1rem 0.5rem 1rem 0.5rem;}
+
+.mainStack {
+  width: 100vw;
+  height: 100vh;
+
 }
 
 .main {
@@ -23,7 +40,7 @@
 }
 
 .blur {
-  display: flex;
+  position: absolute;
   justify-self: center;
   align-content: center;
   justify-content: space-evenly;
@@ -33,13 +50,15 @@
   width: 100vw;
   height: 100vh;
   justify-self: center;
-  background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(5px);
+  pointer-events: none;
+
 }
 
-.IconButtons{
+.IconButtons {
   padding: 3rem;
 }
+
 .paper {
   margin: 1rem;
   display: flex;
@@ -48,4 +67,10 @@
   width: fit-content;
   height: fit-content;
   padding: 1rem;
+}
+
+.SplineBackground {
+  position: absolute;
+  width: 100vw*50;
+  height: 100vh*50;
 }
