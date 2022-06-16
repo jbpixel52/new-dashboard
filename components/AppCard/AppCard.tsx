@@ -25,7 +25,12 @@ export default function AppCard(props: App) {
     useEffect(() => {
         const color = prominent(icon, { amount: 1, format: 'array' });
         color.then(value => {
-            setbgColor(value);
+            try {
+                setbgColor(Number(vaule));
+            } catch (error) {
+                
+            }
+            
             console.log(`The promiennt color of ${props.appname} is ${value}`);
         }).catch(err => {
             console.log(err);
