@@ -18,7 +18,7 @@ function removeHTTPfromURL(appurl: string) {
 
 
 export default function AppCard(props: App) {
-    const [bgColor, setbgColor] = useState([1,1,1]);
+    const [bgColor, setbgColor] = useState<any>([1,1,1]);
     const theme = useTheme();
     const [icon, setIcon] = useState(AppIcons(props));
 
@@ -26,7 +26,7 @@ export default function AppCard(props: App) {
         const color = prominent(icon, { amount: 1, format: 'array' });
         color.then(value => {
             try {
-                setbgColor(Number(vaule));
+                setbgColor((value));
             } catch (error) {
                 
             }
