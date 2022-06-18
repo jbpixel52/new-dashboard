@@ -1,47 +1,39 @@
 import axios from "axios";
 import { RadioButton } from "grommet";
+import Error from "next/error";
 import { useState } from "react";
-
-type App = {
-    appname: string,
-    apptype: string,
-    appurl: string,
-    appdescription: string,
-}
+import type App from '../Types/App';
 type AppStatus = {
-    status : number,
+    code : number,
     color: string,
     logic : boolean,
 
 }
-function pingApp(props: App, status: AppStatus){
-    status.status = new Response(props.appurl).status;
-    console.log('status is '+status.status );
-    switch (status.status) {
-        case 200:
-            console.log(props.appname+' is online');
-            status.color = "status-ok";
-            status.logic  = true;  
-            break;
+function pingApp(URL:App.appurl, Status:AppStatus){
+    Status.code = new Response(URL).status;
+    return Status.code;
+}
+
+
+
+export default async function OnlineIndicator(props:App){
+    let AppInfo: AppStatus = {'code': 0, "color": 'green', 'logic': false};
+    AppInfo.code = await pingApp(props, AppInfo);
+    const [status, setStatus] = useState<number>(0);
+   
+    console.log(`Status response for ${props.appname} is code: ${status} `)
+    switch (true) {
+        case (status >=100 && status<=199):
+            return('ℹℹ️');
+        case (status >=200 && status<=299):
+            return('🟢');
+        case (status >=300 && status<=399):
+            return('🛤️');
+        case (status >=400 && status<=499):
+            return('☹️');
+        case (status >=500 && status<=599):
         default:
-            console.log(props.appname+' is not online');
-            status.color = "status-error";
-            status.logic = false;
-            break;
+            return 'no status code';
     }
-    return status
 }
 
-
-
-export default function OnlineIndicator(props:App){
-    let AppInfo: AppStatus = {'status': 0, "color": 'green', 'logic': false};
-    AppInfo = pingApp(props, AppInfo);
-    const [status, setStatus] = useState(AppInfo.logic);
-    function checkStatus(){
-        AppInfo = pingApp(props,AppInfo)
-        setStatus(AppInfo.logic);
-    }
-    const element  = (<RadioButton name="radio" checked={status} onChange={checkStatus} ></RadioButton>);
-    return element
-}

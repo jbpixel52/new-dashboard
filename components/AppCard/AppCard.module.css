@@ -1,16 +1,18 @@
 
 .AppCard{
-    border-radius: 1rem;
     justify-self: center;
     align-content: center;
     justify-content: center;
     align-self: center;
     align-items: center;
-    border: 0;
+    width: max-content;
+    display: flex;
+    flex-shrink:initial;
+    flex-flow: column;
+    border-radius: 1rem;
 }
 .AppBackground{
     border-radius: 1rem;
-    backdrop-filter: blur(60px);
-    border: 0;
+    backdrop-filter: blur(100%);
 }
 

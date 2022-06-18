@@ -4,57 +4,63 @@ import { prominent } from 'color.js'
 import { useTheme } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import style from '../AppCard/AppCard.module.css'
-import { Box, CardMedia, Paper } from '@mui/material';
+import { Box, CardMedia } from '@mui/material';
 import Link from 'next/link';
 import type App from '../Types/App'
-{   /* <Anchor href={props.appurl} label={props.appurl.replace(/(^http:\/\/|https:\/\/)/i, "")} /> */ }
+import Typography from '@mui/material/Typography';
+import OnlineIndicator from './OnlineIndicator';
 
-
-function removeHTTPfromURL(appurl: string) {
-    let cleanURL: string = appurl;
-    cleanURL = cleanURL.replace(/(^http:\/\/|https:\/\/)/i, "");
-    return cleanURL;
-}
 
 
 export default function AppCard(props: App) {
-    const [bgColor, setbgColor] = useState<any>([1,1,1]);
+    const [bgColor, setbgColor] = useState<any>([1, 1, 1]);
     const theme = useTheme();
     const [icon, setIcon] = useState(AppIcons(props));
-
+    const [statusEmoji, setEmoji] = useState<string>('👽');
     useEffect(() => {
-        const color = prominent(icon, { amount: 1, format: 'array' });
+        const color = prominent(icon, { sample: 100, amount: 1, format: 'array' });
         color.then(value => {
             try {
                 setbgColor((value));
             } catch (error) {
-                
+
             }
-            
+
             console.log(`The promiennt color of ${props.appname} is ${value}`);
         }).catch(err => {
             console.log(err);
         });
 
-    }, [bgColor, icon, props.appname]);
+    }, []);
+
+
+
+    useEffect(() => {
+        OnlineIndicator(props).then(value => {
+            setEmoji(value);
+        }).catch(err => {
+            console.log(err);
+        })
+    }, [])
 
     return (
         <Link href={props.appurl} as={props.appurl} passHref>
-            <Box className={style.AppBackground} sx={{
-                bgcolor: `rgba(${bgColor[0]},${bgColor[1]},${bgColor[2]},0.6)`}}>
+            {/* <Box className={style.AppBackground} sx={{
+                bgcolor: `rgba(${bgColor[0]},${bgColor[1]},${bgColor[2]},0.6)`}}> */}
 
 
-            <Card  sx={{
-                display: 'flex', backgroundColor: 'transparent', padding:1
+            <Card sx={{
+                backgroundColor: `rgba(${bgColor[0]},${bgColor[1]},${bgColor[2]},0.5)`, padding: 3
             }} className={style.AppCard}>
                 <CardMedia
                     component="img"
-                    sx={{ width: 75, height: 75 }}
+                    sx={{ width: 55, height: 55 }}
                     image={AppIcons(props)}
                     alt="app icon"
                 />
+                <Typography>{`${props.appname} ${statusEmoji}`}</Typography>
             </Card>
-            </Box>
+            {/* </Box> */}
 
         </Link>
     );
