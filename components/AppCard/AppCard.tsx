@@ -12,12 +12,29 @@ import OnlineIndicator from '../../pages/api/OnlineIndicator';
 import { CardActionArea } from '@mui/material';
 
 
+function componentToHex(c:number) {
+    const hex:string = c.toString(16); 
+    return hex.length == 1 ? "0" + hex : hex;
+  }
+
+function rgbToHex(r:number, g:number, b:number) {
+    return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+  }
+
+
 
 export default function AppCard(props: App) {
     const [bgColor, setbgColor] = useState<any>([1, 1, 1]);
     const theme = useTheme();
     const [icon, setIcon] = useState(AppIcons(props));
     const [statusEmoji, setEmoji] = useState<string>('👽');
+
+    const AppCardStyle = {
+        backgroundImage: `linear-gradient(180deg, ${rgbToHex(bgColor[0],bgColor[1],bgColor[2])},
+        #000000)`
+    }
+
+
     useEffect(() => {
         const emoji = OnlineIndicator(props);
         emoji.then(value => {
@@ -34,14 +51,12 @@ export default function AppCard(props: App) {
     }, []);
 
     return (
-        
-        <Card className={style.AppCard}>
 
-            <CardActionArea sx={{
-            backgroundColor: `rgba(${bgColor[0]},${bgColor[1]},${bgColor[2]},0.5)`, padding: 3
-        }} className={style.AppCard}   onClick={() => {
-            window.open(props.appurl, '_blank');
-          }}>
+        <Card style={AppCardStyle} className={style.AppCard}>
+
+            <CardActionArea sx={{padding: 3}} className={style.AppCard} onClick={() => {
+                window.open(props.appurl, '_blank');
+            }}>
 
                 <CardMedia
                     component="img"
