@@ -8,7 +8,8 @@ import { Box, CardMedia } from '@mui/material';
 import Link from 'next/link';
 import type App from '../Types/App'
 import Typography from '@mui/material/Typography';
-import OnlineIndicator from './OnlineIndicator';
+import OnlineIndicator from '../../pages/api/OnlineIndicator';
+import { CardActionArea } from '@mui/material';
 
 
 
@@ -18,14 +19,13 @@ export default function AppCard(props: App) {
     const [icon, setIcon] = useState(AppIcons(props));
     const [statusEmoji, setEmoji] = useState<string>('👽');
     useEffect(() => {
+        const emoji = OnlineIndicator(props);
+        emoji.then(value => {
+            setEmoji(value);
+        })
         const color = prominent(icon, { sample: 100, amount: 1, format: 'array' });
         color.then(value => {
-            try {
-                setbgColor((value));
-            } catch (error) {
-
-            }
-
+            setbgColor((value));
             console.log(`The promiennt color of ${props.appname} is ${value}`);
         }).catch(err => {
             console.log(err);
@@ -33,35 +33,26 @@ export default function AppCard(props: App) {
 
     }, []);
 
-
-
-    useEffect(() => {
-        OnlineIndicator(props).then(value => {
-            setEmoji(value);
-        }).catch(err => {
-            console.log(err);
-        })
-    }, [])
-
     return (
-        <Link href={props.appurl} as={props.appurl} passHref>
-            {/* <Box className={style.AppBackground} sx={{
-                bgcolor: `rgba(${bgColor[0]},${bgColor[1]},${bgColor[2]},0.6)`}}> */}
+        
+        <Card className={style.AppCard}>
 
+            <CardActionArea sx={{
+            backgroundColor: `rgba(${bgColor[0]},${bgColor[1]},${bgColor[2]},0.5)`, padding: 3
+        }} className={style.AppCard}   onClick={() => {
+            window.open(props.appurl, '_blank');
+          }}>
 
-            <Card sx={{
-                backgroundColor: `rgba(${bgColor[0]},${bgColor[1]},${bgColor[2]},0.5)`, padding: 3
-            }} className={style.AppCard}>
                 <CardMedia
                     component="img"
                     sx={{ width: 55, height: 55 }}
                     image={AppIcons(props)}
                     alt="app icon"
                 />
-                <Typography>{`${props.appname} ${statusEmoji}`}</Typography>
-            </Card>
-            {/* </Box> */}
 
-        </Link>
+                <Typography>{`${props.appname} ${statusEmoji}`}</Typography>
+
+            </CardActionArea>
+        </Card>
     );
 }

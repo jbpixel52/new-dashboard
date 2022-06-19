@@ -16,3 +16,6 @@
     backdrop-filter: blur(100%);
 }
 
+.AppLink:visited{
+    text-decoration: none;
+}
