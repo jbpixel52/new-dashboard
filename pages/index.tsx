@@ -35,7 +35,7 @@ const Home: NextPage = () => {
       <Box style={styles.paperContainer} className={style.main}>
 
         <Image src={backgroundSource} alt={'Background image'} layout='fill' />
-        {/* <Spline scene="https://prod.spline.design/KRWPcv2wBCCbH11p/scene.splinecode" className={style.SplineBackground} /> */}
+        <Spline scene="https://prod.spline.design/KRWPcv2wBCCbH11p/scene.splinecode" className={style.SplineBackground} />
 
         {/* <Box className={style.blur}/>   */}
 
