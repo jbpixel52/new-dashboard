@@ -29,18 +29,18 @@ function getDay() {
 function searchFunc(query: string) {
   return "https://google.com/search?q=" + query;
 }
-//                 onKeyPress={(e) => {
-//                     if (e.key === "Enter" && search.length > 0) {
-//                         console.log("pressed ENTER");
-//                         window.location.href = searchFunc(search);
+// onKeyPress={(e) => {
+//     if (e.key === "Enter" && search.length > 0) {
+//         console.log("pressed ENTER");
+//         window.location.href = searchFunc(search);
 
 export default function SearchBar() {
   const [search, setsearch] = useState('')
   const [greeting, setgreeting] = useState('')
-  
-  useEffect(()=>{
-    setgreeting(`${getRandomGreeting()} ${randomEmoji.random({count:1})}`);
-  },[]);
+
+  useEffect(() => {
+    setgreeting(`${getRandomGreeting()} ${randomEmoji.random({ count: 1 })}`);
+  }, []);
 
 
   return (
@@ -49,15 +49,22 @@ export default function SearchBar() {
       id="searchBarr"
       sx={{ width: 300 }}
       options={data.apps.map((app) => app.appname)}
-      
+      blurOnSelect={true}
       renderInput={(params) => <TextField {...params} label={greeting}
+      onChange={(value) => {
+        setsearch(value);
+      }}
+
         onKeyPress={(e) => {
-          if (e.key === "Enter" && search.length > 0) {
+          if (e.key === "Enter") {
+
             console.log("pressed ENTER");
             window.location.href = searchFunc(search);
 
           }
         }}
+
+
       />}
     />
   );

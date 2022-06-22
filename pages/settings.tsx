@@ -2,13 +2,16 @@ import { Container, Paper, Stack, Typography, Switch, FormControlLabel, FormGrou
 import style from '../styles/Home.module.css'
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from 'next'
 import Link from 'next/link'
+import useStore from '../components/store/store';
 
-const settings = ({
-}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+
+const Settings = ({ }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+    const ComponentState = useStore(state => state.componentState);
+    const changeState = useStore(state => state.changeState);
     return (
 
         <Container className={style.Container}>
-          {<Link href={'/'} >Link to Home</Link>}
+            {<Link href={'/'} >Link to Home</Link>}
             <Stack spacing={2}>
                 <Paper elevation={10} className={style.paper}>
                     <Typography>
@@ -22,11 +25,13 @@ const settings = ({
                 </Paper>
                 <Paper elevation={11} className={style.paper}>
                     <Typography>
-                        Clock Settings 2
+                        Components visibility
                     </Typography>
                     <FormGroup>
-                        <FormControlLabel control={<Switch defaultChecked />} label="Label" />
-                        <FormControlLabel disabled control={<Switch />} label="Disabled" />
+                        <FormControlLabel control={<Switch checked={ComponentState}
+                            onChange={changeState}
+                        />} label="Apps Grid" />
+
                     </FormGroup>
 
                 </Paper>
@@ -44,4 +49,4 @@ export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
     }
 }
 
-export default settings;
+export default Settings;

@@ -4,17 +4,25 @@ import data from '../../applinks.json'
 import AppCard from '../AppCard/AppCard';
 import style from './AppGrid.module.css'
 import type App from '../Types/App';
-// function itemToApp(item: any){
-//    let props: App = {'appname': item.appname, 'apptype':item.apptype, 'appurl':item.appurl,'appdescription':item.appdescription};
-//    return props;
-// }
+import useStore  from '../store/store';
+
+
 
 export default function AppGrid() {
-    const boxes: JSX.Element[] = data.apps.map((app: App, i) =>
-        AppCard(app)
-    );
-    console.log(boxes);
-    return (
-        <div className={style.AppGrid}>{boxes}</div>
-    );
+    const ComponentState = useStore(state => state.componentState);
+    console.log(`State of App Grid is ${ComponentState}`);
+
+    switch (ComponentState) {
+        case true:
+            const boxes: JSX.Element[] = data.apps.map((app: App, i) =>
+                AppCard(app)
+            );
+            return (
+                <div className={style.AppGrid}>{boxes}</div>
+            );
+        case false:
+            return(<></>);
+            default:
+            break;
+    }
 }

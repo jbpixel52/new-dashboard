@@ -8,21 +8,24 @@ import SettingsIcon from '@mui/icons-material/Settings';
 
 
 export default function FloatingActionButtons() {
-    return (
-      <Box sx={{ '& > :not(style)': { m: 1 } }}>
-        <Fab color="primary" aria-label="add">
+  return (
+    <Box sx={{ '& > :not(style)': { m: 1 } }}>
+      <Fab color="primary" aria-label="add"
+        onClick={() => {
+          window.location = '/settings';
+        }}>
         <SettingsIcon />
-                </Fab>
-        <Fab color="secondary" aria-label="edit">
-          <EditIcon />
-        </Fab>
-        <Fab variant="extended">
-          <NavigationIcon sx={{ mr: 1 }} />
-          BOP!
-        </Fab>
-        <Fab disabled aria-label="like">
-          <FavoriteIcon />
-        </Fab>
-      </Box>
-    );
-  }
+      </Fab>
+      <Fab color="secondary" aria-label="edit">
+        <EditIcon />
+      </Fab>
+      <Fab variant="extended">
+        <NavigationIcon sx={{ mr: 1 }} />
+        BOP!
+      </Fab>
+      <Fab disabled aria-label="like">
+        <FavoriteIcon />
+      </Fab>
+    </Box>
+  );
+}
