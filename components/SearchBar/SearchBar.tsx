@@ -51,21 +51,15 @@ export default function SearchBar() {
       options={data.apps.map((app) => app.appname)}
       blurOnSelect={true}
       renderInput={(params) => <TextField {...params} label={greeting}
-      onChange={(value) => {
-        setsearch(value);
-      }}
-
-        onKeyPress={(e) => {
-          if (e.key === "Enter") {
-
-            console.log("pressed ENTER");
-            window.location.href = searchFunc(search);
-
-          }
-        }}
-
-
       />}
     />
   );
 }
+        // onKeyPress={(e) => {
+        //   if (e.key === "Enter") {
+
+        //     console.log("pressed ENTER");
+        //     window.location.href = searchFunc(search);
+
+        //   }
+        // }}
