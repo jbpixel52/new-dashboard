@@ -4,9 +4,6 @@ import Head from 'next/head'
 import AppGrid from '../components/AppGrid/AppGrid'
 import SearchBar from '../components/SearchBar/SearchBar'
 import style from '../styles/Home.module.css'
-import Link from 'next/link'
-import SettingsIcon from '@mui/icons-material/Settings';
-import title from 'next'
 import FloatingActionButtons from '../components/FAB/FAB'
 import Spline from '@splinetool/react-spline';
 import { useEffect } from "react";
@@ -23,6 +20,9 @@ const styles = {
 
 const Home: NextPage = () => {
 
+  
+
+
   useEffect(() => {
     document.documentElement.lang = "eng-us";
   }, []);
@@ -35,7 +35,7 @@ const Home: NextPage = () => {
       <Box style={styles.paperContainer} className={style.main}>
 
         <Image src={backgroundSource} alt={'Background image'} layout='fill' />
-        <Spline scene="https://prod.spline.design/KRWPcv2wBCCbH11p/scene.splinecode" className={style.SplineBackground} />
+        {/* <Spline scene="https://prod.spline.design/KRWPcv2wBCCbH11p/scene.splinecode" className={style.SplineBackground} /> */}
 
         {/* <Box className={style.blur}/>   */}
 

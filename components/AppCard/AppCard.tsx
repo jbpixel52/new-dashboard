@@ -24,42 +24,36 @@ function rgbToHex(r: number, g: number, b: number) {
 
 export default function AppCard(props: App) {
 
-    const [bgColor, setbgColor] = useState<[number, number, number]>([1, 1, 1]);
-    const theme = useTheme();
+    // const [bgColor, setbgColor] = useState<[number, number, number]>([1, 1, 1]);
     const [icon, setIcon] = useState(AppIcons(props));
     const [statusEmoji, setEmoji] = useState<string>('👽');
 
-    const AppCardStyle = {
-        backgroundImage: `linear-gradient(0deg, ${rgbToHex(bgColor[0], bgColor[1], bgColor[2])} 0%,
-        ${rgbToHex(255 - bgColor[0], 255 - bgColor[1], 255 - bgColor[2])})`
-    }
-
-
     useEffect(() => {
+        localStorage.setItem(props.appname, JSON.stringify(props));
         const emoji = OnlineIndicator(props);
         emoji.then(value => {
             setEmoji(value);
         })
-        const color = average(icon, { sample: 100, amount: 1, format: 'array' });
-        color.then(value => {
-            setbgColor((value));
-        }).catch(err => {
-            console.log(err);
-        });
+        // const color = average(icon, { sample: 100, amount: 1, format: 'array' });
+        // color.then(value => {
+        //     setbgColor((value));
+        // }).catch(err => {
+        //     console.log(err);
+        // });
 
     }, []);
 
     return (
 
-        <Card style={AppCardStyle} className={style.AppCard}>
+        <Card className={style.AppCard}>
 
-            <CardActionArea sx={{ padding: 3 }} className={style.AppCard} onClick={() => {
+            <CardActionArea sx={{ padding: 1.5 }} className={style.AppCard} onClick={() => {
                 window.open(props.appurl, '_blank');
             }}>
 
                 <CardMedia
                     component="img"
-                    sx={{ width: 55, height: 55 }}
+                    sx={{ width: 60, height: 60 }}
                     image={AppIcons(props)}
                     alt="app icon"
                 />
