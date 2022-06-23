@@ -1,4 +1,3 @@
-import { Box, Container, Button, IconButton } from '@mui/material'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import AppGrid from '../components/AppGrid/AppGrid'
@@ -32,7 +31,6 @@ const Home: NextPage = () => {
         <title>Dashboard</title>
 
       </Head>
-      <Box style={styles.paperContainer} className={style.main}>
 
         <Image src={backgroundSource} alt={'Background image'} layout='fill' />
         {/* <Spline scene="https://prod.spline.design/KRWPcv2wBCCbH11p/scene.splinecode" className={style.SplineBackground} /> */}
@@ -40,15 +38,14 @@ const Home: NextPage = () => {
         {/* <Box className={style.blur}/>   */}
 
 
-        <Container className={style.Container}>
+        <div className={style.Container}>
           {SearchBar()}
           {AppGrid()}
           {FloatingActionButtons()}
-        </Container>
+        </div>
 
 
-      </Box>
-    </main>
+      </main>
   )
 }
 

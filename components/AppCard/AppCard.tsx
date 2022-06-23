@@ -1,15 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import AppIcons from '../AppIcons/AppIcons';
 import { prominent, average } from 'color.js'
-import { useTheme } from '@mui/material/styles';
-import Card from '@mui/material/Card';
 import style from '../AppCard/AppCard.module.css'
-import { CardMedia } from '@mui/material';
 import type App from '../Types/App'
-import Typography from '@mui/material/Typography';
 import OnlineIndicator from '../../pages/api/OnlineIndicator';
-import { CardActionArea } from '@mui/material';
-
+import Image from 'next/image';
 
 function componentToHex(c: number) {
     const hex: string = c.toString(16);
@@ -45,22 +40,13 @@ export default function AppCard(props: App) {
 
     return (
 
-        <Card className={style.AppCard}>
-
-            <CardActionArea sx={{ padding: 1.5 }} className={style.AppCard} onClick={() => {
+        <div className={style.AppCard}>
+            <div className={style.AppCard} onClick={() => {
                 window.open(props.appurl, '_blank');
             }}>
-
-                <CardMedia
-                    component="img"
-                    sx={{ width: 60, height: 60 }}
-                    image={AppIcons(props)}
-                    alt="app icon"
-                />
-
-                <Typography>{`${props.appname} ${statusEmoji}`}</Typography>
-
-            </CardActionArea>
-        </Card>
+                <Image src={AppIcons(props)} width="50" height="50" layout="responsive" alt={props.appname}/>
+                <p>{`${props.appname} ${statusEmoji}`}</p>
+            </div>
+        </div>
     );
 }

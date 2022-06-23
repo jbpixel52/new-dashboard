@@ -1,4 +1,3 @@
-import { Box, Grid, Page } from 'grommet';
 import { useState } from 'react';
 import data from '../../applinks.json'
 import AppCard from '../AppCard/AppCard';

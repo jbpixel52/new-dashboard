@@ -2,9 +2,11 @@
     display: flex;
     flex-wrap: wrap;
     width: fit-content;
+    min-width: min-content;
     padding-top: 3rem;
     padding-bottom: 3rem;
     height: fit-content;
+    min-height: min-content;
     gap: 2vw;
     justify-self: center;
     align-content: center;
