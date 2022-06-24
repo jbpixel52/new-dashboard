@@ -1,28 +1,38 @@
 
-.AppCard{
+.content{
     justify-self: center;
     align-content: center;
     justify-content: center;
     align-self: center;
     align-items: center;
-    width: max-content;
-    display: flex;
-    flex-shrink:initial;
-    flex-flow: column;
+    width: fit-content;
+    height: fit-content;
+    display: block;
+    direction: ltr;
+    padding: 1rem;
     border-radius: 1rem;
     background-color: transparent;
     box-shadow: 0.1rem 0.2rem 0.1rem 0.2rem rgba(0, 0, 0, 0.2),
     -0.1rem 0.2rem 0.1rem 0.2rem rgba(0, 0, 0, 0.2);
 }
-.AppCard:hover{
+.container:hover{
     box-shadow: 0.1rem 0.5rem 0.1rem 0.5rem rgba(0, 0, 0, 0.2),
     -0.1rem 0.5rem 0.1rem 0.5rem rgba(0, 0, 0, 0.2);
 }
+
 .AppBackground{
     border-radius: 1rem;
     backdrop-filter: blur(100%);
 }
 
-.AppLink:visited{
+.container:visited{
     text-decoration: none;
+}
+.iconContainer{
+    display: block;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
 }

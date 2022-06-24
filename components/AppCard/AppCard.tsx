@@ -39,14 +39,13 @@ export default function AppCard(props: App) {
     }, []);
 
     return (
-
-        <div className={style.AppCard}>
-            <div className={style.AppCard} onClick={() => {
-                window.open(props.appurl, '_blank');
-            }}>
-                <Image src={AppIcons(props)} width="50" height="50" layout="responsive" alt={props.appname}/>
-                <p>{`${props.appname} ${statusEmoji}`}</p>
-            </div>
+        <div className={style.container}>
+        <div className={style.content} onClick={() => {
+            window.open(props.appurl, '_blank');
+        }}>
+            <Image src={AppIcons(props)} width="20px" height="20px" layout="responsive" alt={props.appname} />
+            <p>{`${props.appname} ${statusEmoji}`}</p>
+        </div>
         </div>
     );
 }

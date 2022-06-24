@@ -8,7 +8,7 @@ import useStore  from '../store/store';
 
 
 export default function AppGrid() {
-    const ComponentState = useStore(state => state.componentState);
+    const ComponentState = useStore((state: { componentState: any; }) => state.componentState);
     console.log(`State of App Grid is ${ComponentState}`);
 
     switch (ComponentState) {
