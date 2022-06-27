@@ -1,18 +1,13 @@
 
 .AppCard{
-    justify-self: center;
-    align-content: center;
-    justify-content: center;
-    align-self: center;
     align-items: center;
-    width: max-content;
-    display: flex;
-    flex-shrink:initial;
-    flex-flow: column;
-    border-radius: 1rem;
+    align-content: center;
+    border-radius: 10%;
     background-color: transparent;
-    box-shadow: 0.1rem 0.2rem 0.1rem 0.2rem rgba(0, 0, 0, 0.2),
-    -0.1rem 0.2rem 0.1rem 0.2rem rgba(0, 0, 0, 0.2);
+    text-align: center;
+    /* box-shadow: 0.1rem 0.2rem 0.1rem 0.2rem rgba(0, 0, 0, 0.2),
+    -0.1rem 0.2rem 0.1rem 0.2rem rgba(0, 0, 0, 0.2); */
+    position: relative;
 }
 .AppCard:hover{
     box-shadow: 0.1rem 0.5rem 0.1rem 0.5rem rgba(0, 0, 0, 0.2),

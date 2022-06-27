@@ -3,7 +3,7 @@ import data from '../../applinks.json'
 import AppCard from '../AppCard/AppCard';
 import style from './AppGrid.module.css'
 import type App from '../Types/App';
-import useStore  from '../store/store';
+import useStore from '../store/store';
 
 
 
@@ -20,8 +20,9 @@ export default function AppGrid() {
                 <div className={style.AppGrid}>{boxes}</div>
             );
         case false:
-            return(<></>);
-            default:
-            break;
+            return (<></>);
+        default:
+            console.log('failed to create App Grid')
+            return (<></>);
     }
 }

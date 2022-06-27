@@ -1,16 +1,6 @@
-.AppGrid{
-    display: flex;
-    flex-wrap: wrap;
-    width: fit-content;
-    min-width: min-content;
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-    height: fit-content;
-    min-height: min-content;
-    gap: 2vw;
-    justify-self: center;
-    align-content: center;
-    justify-content:space-between;
-    align-self: center;
-    align-items: center;
+.AppGrid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(5vw, 5vh));
+    justify-content: space-between;
+    gap: 10vw;
 }
