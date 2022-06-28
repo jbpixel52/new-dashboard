@@ -3,34 +3,27 @@
     display: flex;
     max-width: 100vw;
     max-height: 100vh;
-    flex-flow: column;
-
-
-}
-
-.pageName {
-    background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
-    background: rgb(131, 58, 180);
-    background: linear-gradient(94deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
-    background-clip: text;
-    color: transparent;
-}
-
-.headerLinks{
-
-}
-.header{
-    z-index: 1;
-    align-content: space-between;
-    gap: 10rem;
-    display: flex;
-    height: 10vh;
     flex-flow: row;
+    align-content: center;
+    gap: 10vw;
+    margin: auto;
+    padding-left: 10rem;
+    padding-right: 10rem;
 }
+
 .Container {
     backdrop-filter: blur(10px);
-    min-width: 40vw;
-    max-width: 95vw;
-    min-height: 75vh;
-    max-height: 75vh;
+}
+
+.gallery {
+    position: relative;
+    margin: auto;
+    display: block;
+    clip-path: fill-box;
+    width: 50%;
+    height: 60vh;
+    overflow: hidden;
+    object-fit: cover;
+    border-color: white;
+    border-radius: 1em;
 }

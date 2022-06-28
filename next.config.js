@@ -7,6 +7,7 @@ module.exports = {
       "raw.githubusercontent.com",
       "images.unsplash.com",
       "source.unsplash.com",
+      "is2.4chan.org"
     ],
   },
   async headers() {

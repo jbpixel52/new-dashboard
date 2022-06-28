@@ -4,10 +4,13 @@
     align-content: center;
     border-radius: 10%;
     background-color: transparent;
+    display: flex;
+    flex-flow: row;
     text-align: center;
     /* box-shadow: 0.1rem 0.2rem 0.1rem 0.2rem rgba(0, 0, 0, 0.2),
     -0.1rem 0.2rem 0.1rem 0.2rem rgba(0, 0, 0, 0.2); */
     position: relative;
+    gap: 1em;
 }
 .AppCard:hover{
     box-shadow: 0.1rem 0.5rem 0.1rem 0.5rem rgba(0, 0, 0, 0.2),

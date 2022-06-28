@@ -3,16 +3,14 @@ body {
   padding: 0;
   margin: 0;
   color: white;
-  font-family:Grotesk, sans-serif;
-    min-width: 100vw;
-    min-height: 100vh;
-    max-height: 100vh;
+  background: black;
+  font-family: Grotesk, sans-serif;
+  width: 100dvw;
+  height: 100dvh;
+  overflow: hidden;
 }
 
 
-a {
-  color: inherit;
-}
 
 @font-face {
   font-family: Grotesk;

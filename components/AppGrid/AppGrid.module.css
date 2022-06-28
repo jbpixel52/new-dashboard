@@ -1,6 +1,9 @@
 .AppGrid {
-    display: grid;
-    grid-template-columns: repeat(5, minmax(5vw, 5vh));
+    display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
-    gap: 10vw;
+    gap: 2vw;
+    align-items: flex-start;
+    max-height: 50vh;
+    align-self: center;
 }

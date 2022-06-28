@@ -22,27 +22,22 @@ const Home: NextPage = () => {
     document.documentElement.lang = "eng-us";
   }, []);
   return (
-    <main className={style.mainStack}>
+    <div className={style.mainStack}>
       <Head>
         <title>Dashboard</title>
       </Head>
 
-      <Image src={backgroundSource} alt={'Background image'} layout='fill' className={style.background} />
       {/* <Spline scene="https://prod.spline.design/KRWPcv2wBCCbH11p/scene.splinecode" className={style.SplineBackground} /> */}
 
-        <header className={style.header}>
+      {/* <header className={style.header}>
           <h1 className={style.pageName}>New BeMOre Dashboard</h1>
           <h2 className={style.headerLinks}><Link href={'/settings'}>settings</Link></h2>
-        </header>
-        <div className={style.Container}>
-          <AppGrid />
-      </div>
-
-
-
-
-
-    </main>
+        </header> */}
+        <div className={style.gallery}>
+          <Image src={'https://is2.4chan.org/wg/1655090288638.jpg'} width="200" height="200" layout="fill" alt={''} objectFit='contain' />
+        </div>
+        <AppGrid />
+    </div>
   )
 }
 

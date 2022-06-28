@@ -43,7 +43,7 @@ export default function AppCard(props: App) {
             <div className={style.AppCard} onClick={() => {
                 window.open(props.appurl, '_blank');
             }}>
-                <Image src={AppIcons(props)} width="100" height="100" layout="responsive" alt={props.appname}/>
+                <Image src={AppIcons(props)} width="20" height="20" layout="fixed" alt={props.appname}/>
                 <p><b>{props.appname} {statusEmoji}</b></p>
         </div>
     );
