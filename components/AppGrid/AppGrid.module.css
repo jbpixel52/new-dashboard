@@ -2,8 +2,8 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 2vw;
     align-items: flex-start;
-    max-height: 50vh;
+    max-width: fit-content;
+    max-height: fit-content;
     align-self: center;
 }

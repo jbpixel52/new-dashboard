@@ -3,14 +3,12 @@ import data from '../../applinks.json'
 import AppCard from '../AppCard/AppCard';
 import style from './AppGrid.module.css'
 import type App from '../Types/App';
-import useStore from '../store/store';
-
-
+import {useComponentStore} from '../store/store';
 
 export default function AppGrid() {
-    const ComponentState = useStore(state => state.componentState);
+    const ComponentState = useComponentStore(state => state.componentState);
     console.log(`State of App Grid is ${ComponentState}`);
-
+    let dummy:boolean = true;
     switch (ComponentState) {
         case true:
             const boxes: JSX.Element[] = data.apps.map((app: App, i) =>
@@ -19,8 +17,6 @@ export default function AppGrid() {
             return (
                 <div className={style.AppGrid}>{boxes}</div>
             );
-        case false:
-            return (<></>);
         default:
             console.log('failed to create App Grid')
             return (<></>);

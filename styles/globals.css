@@ -8,6 +8,10 @@ body {
   width: 100dvw;
   height: 100dvh;
   overflow: hidden;
+  background-color:#212121;
+  justify-content: center;
+  align-items: center;
+  
 }
 
 
