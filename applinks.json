@@ -1,40 +1,70 @@
 {
   "apps": [
-    
-     {"appname": "sonarr",
+    {
+      "appname": "sonarr",
       "appurl": "http://sonarr.jbpixel.xyz",
       "appdescription": "automate series",
-      "apptype":"app"}
-  ,
+      "apptype": "app"
+    },
     {
       "appname": "Flame",
       "appurl": "http://dashboard.jbpixel.xyz",
       "appdescription": "personal dashboard",
-      "apptype":"app"
+      "apptype": "app"
     },
     {
-      "appname":"Radarr",
-      "appurl":"https://radarr.jbpixel.xyz",
-      "appdescription":"Automate movies",
-      "apptype":"app"
+      "appname": "Plex",
+      "appurl": "https://plex.tv",
+      "appdescription": "Media Server",
+      "apptype": "app"
     },
     {
-      "appname":"Plex",
-      "appurl":"https://plex.tv",
-      "appdescription":"Media Server",
-      "apptype":"app"
+      "appname": "tautulli",
+      "appurl": "http://tautulli.jbpixel.xyz",
+      "appdescription": "Monitor Plex status and stats.",
+      "apptype": "app"
     },
     {
-      "appname":"tautulli",
-      "appurl":"http://tautulli.jbpixel.xyz",
-      "appdescription":"Monitor Plex status and stats.",
-      "apptype":"app"
+      "appname": "Uptime-Kuma",
+      "appurl": "http://uptime.jbpixel.xyz",
+      "appdescription": "Monitor uptime",
+      "apptype": "app"
     },
     {
-      "appname":"Uptime-Kuma",
-      "appurl":"http://uptime.jdsabpixel.xyz",
-      "appdescription":"Monitor uptime",
-      "apptype":"app"
+      "appname": "Radarr",
+      "appdescription": "idk",
+      "appurl": "https://radarr.jbpixel.xyz",
+      "apptype": "app"
+    },
+    {
+      "appname": "Actual Budgeting",
+      "appdescription": "budget manager",
+      "appurl": "https:actual.jbpixel.xyz",
+      "apptype": "app"
+    },
+    {
+      "appname": "File Browser",
+      "appdescription": "File Browser",
+      "appurl": "https://files.jbpixel.xyz",
+      "apptype": "app"
+    },
+    {
+      "appname": "Home-Assistant",
+      "appdescription": "Home Assistant (Local Access Only",
+      "appurl": "http://http://homeassistant.local:8123/",
+      "apptype": "app"
+    },
+    {
+      "appname": "Cryptgeon",
+      "appdescription": "Easily send fully encrypted, secure notes or files with one click. Just create a note and share the link.",
+      "appurl": "https://pigeon.jbpixel.xyz",
+      "apptype": "app"
+    },
+    {
+      "appname": "Tachidesk",
+      "appdescription": "WEB GUI for Tachinomi",
+      "appurl": "http://tachi.jbpixel.xyz",
+      "apptype": "app"
     }
   ]
 }

@@ -4,16 +4,27 @@
 }
 
 .background {
+    width: 100%;
+    height: 100%;
     position: absolute;
     /* Full height */
-    height: 100%;
-
+    object-fit: cover;
     /* Center and scale the image nicely */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-}
+    z-index: -2;
+    backdrop-filter: blur(10px);
 
+}
+.SplineBackground {
+    width: 100%;
+    position: absolute;
+    /* Full height */
+    /* Center and scale the image nicely */
+    z-index: 0;
+
+}
 .mainStack {
     position: absolute;
     margin: auto;
@@ -39,38 +50,37 @@
 
 }
 
-.Container {
-    backdrop-filter: blur(10px);
+.blurLayer {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    /* Full height */
+    object-fit: cover;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    backdrop-filter: blur(5px);
+    z-index: -1;
 }
 
-.gallery {
-    position: relative;
-    margin: auto;
-    border-color: #e8d4e5;
-    box-shadow: -0.3rem 0.3rem 0.3em #e8d4e5;
-    display: block;
-    clip-path: fill-box;
-    width: 40vw;
-    height: 60vh;
-    overflow: auto;
-    object-fit: cover;
-    border: solid;
-    border-color: transparent;
-    border-width: 0.1em;
+
+.gallery{
+    display: blo;
+    height: 20rem;
+    width:50%;
+    object-fit: contain;
+    overflow: hidden;
     border-radius: 1rem;
 }
-
-.sidebar {
-    color: inherit;
-
+.galleryImage{
+    height: 100%;
+    border-radius: 1rem;
 }
-
-.sidebar a {
-    text-decoration: none;
-}
-
-.sidebar ul {    list-style-type: none;
-    font-size: 1.5em;
-    line-height: 1.5em;
-    gap: 1em;
+.galleryImageWrapper{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 1rem;
+    background-color: transparent;
 }

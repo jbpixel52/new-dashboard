@@ -1,8 +1,5 @@
-import { RadioButton } from "grommet";
-import Error from "next/error";
-import { useState } from "react";
+
 import type App from '../../components/Types/App';
-import axios from 'axios';
 type AppStatus = {
     code: number,
     color: string,
@@ -14,10 +11,10 @@ type AppStatus = {
 export default async function OnlineIndicator(props: App) {
     let AppInfo: AppStatus = { 'code': 0, "color": 'green', 'logic': false };
     AppInfo.code = new Response(props.appurl).status;
-    console.log(`STATUS CODE FOR ${props.appname} is = ${AppInfo.code}`)
+    //console.log(`STATUS CODE FOR ${props.appname} is = ${AppInfo.code}`)
 
 
-    console.log(`Status response for ${props.appname} is code: ${AppInfo.code} `)
+    //console.log(`Status response for ${props.appname} is code: ${AppInfo.code} `)
     switch (true) {
         case (AppInfo.code >= 100 && AppInfo.code <= 199):
             return ('ℹℹ️');

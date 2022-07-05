@@ -7,14 +7,10 @@ import Spline from '@splinetool/react-spline';
 import { useEffect } from "react";
 import Image from 'next/future/image';
 import Link from 'next/link'
-import {useBackgroundStore} from '../components/store/store'
+import { useBackgroundStore } from '../components/store/store'
 import { MdSettings } from "react-icons/md";
-import {MdHome} from "react-icons/md"
-// const styles = {
-//   paperContainer: {
-//     backgroundImage: `url(${})`
-//   }
-// };
+import { MdHome } from "react-icons/md"
+import Navigation from '../components/navigation/Navigation'
 
 
 
@@ -25,36 +21,25 @@ const Home: NextPage = () => {
     document.documentElement.lang = "eng-us";
   }, []);
   return (
-  <main className={style.main}>
-              <Image src={'https://is2.4chan.org/wg/1655090288638.jpg'}  alt='alt text lol' className={style.background}/>
+    <main className={style.main}>
 
+      <Image src={'https://images2.alphacoders.com/660/660651.jpg'} alt='alt text lol' className={style.background} />
+      <div className={style.blurLayer}></div>
       <div className={style.mainStack}>
         <Head>
           <title>Dashboard</title>
         </Head>
-        {/* <Spline scene="https://prod.spline.design/KRWPcv2wBCCbH11p/scene.splinecode" className={style.SplineBackground} /> */}
-        {/* <header className={style.header}>
-            <h1 className={style.pageName}>New BeMOre Dashboard</h1>
-            <h2 className={style.headerLinks}><Link href={'/settings'}>settings</Link></h2>
-          </header> */}
-        <AppGrid />
-        <div className={style.sidebar}>
-          <ul>
-        <li>
-          <Link href="/">
-            <MdHome/>
-          </Link>
-        </li>
-          <li>
-            <Link href="/settings">
-            <MdSettings/>
-                  </Link>
-          </li>
-          </ul>
+        <div className={style.gallery}>
+          <h1>BeMOre Dashboard</h1>
+          <div className={style.galleryImageWrapper}>          <Image src={'https://images2.alphacoders.com/660/660651.jpg'} alt='painting' className={style.galleryImage} />
+          </div>
+
         </div>
-    
+
+        <AppGrid />
+        <Navigation />
       </div>
-  </main>
+    </main>
   )
 }
 

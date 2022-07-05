@@ -8,6 +8,8 @@ module.exports = {
       "images.unsplash.com",
       "source.unsplash.com",
       "is2.4chan.org",
+      'images2.alphacoders.com',
+      "jbpixel.xyz"
     ],
   },
   experimental: {

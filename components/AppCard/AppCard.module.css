@@ -23,3 +23,7 @@
 .AppLink:visited{
     text-decoration: none;
 }
+.icon{
+    height: 2rem;
+    width: 2rem;
+}

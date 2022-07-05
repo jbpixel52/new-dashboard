@@ -1,15 +1,11 @@
 import { Container, Paper, Stack, Typography, Switch, FormControlLabel, FormGroup } from '@mui/material';
-import style from '../styles/Home.module.css'
-import { GetServerSidePropsContext, InferGetServerSidePropsType } from 'next'
-import Link from 'next/link'
-import { useBackgroundStore, useComponentStore } from '../components/store/store';
-import { useState } from 'react';
+import style from '../styles/Home.module.css';
+import { GetServerSidePropsContext, InferGetServerSidePropsType } from 'next';
+import {useTheme}from '../components/store/themeStore';
+import Navigation from '../components/navigation/Navigation';
 
 const Settings = ({ }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-    const storeURL:string = useBackgroundStore((state) => state.source);
-    const [url, seturl] = useState(storeURL);
-    const changeGalleryURL = useBackgroundStore((state)=>state.changeSource(url));
-
+    const primaryColor = useTheme
     return (
         <div className={style.mainStack}>
             <form>
@@ -21,6 +17,8 @@ const Settings = ({ }: InferGetServerSidePropsType<typeof getServerSideProps>) =
                     <button>Change</button>
                 </div>
             </form>
+
+        <Navigation/>
         </div>
     );
 }

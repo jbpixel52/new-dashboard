@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import AppIcons from '../AppIcons/AppIcons';
-import { prominent, average } from 'color.js'
+import AppIcons from '../../pages/api/AppIcons';
 import style from '../AppCard/AppCard.module.css'
 import type App from '../Types/App'
 import OnlineIndicator from '../../pages/api/OnlineIndicator';
-import Image from 'next/image';
 
 function componentToHex(c: number) {
     const hex: string = c.toString(16);
@@ -20,7 +18,7 @@ function rgbToHex(r: number, g: number, b: number) {
 export default function AppCard(props: App) {
 
     // const [bgColor, setbgColor] = useState<[number, number, number]>([1, 1, 1]);
-    const [icon, setIcon] = useState(AppIcons(props));
+    const [icon, setIcon] = useState("https://raw.githubusercontent.com/google/material-design-icons/master/png/alert/error/materialiconsround/48dp/2x/round_error_black_48dp.png");
     const [statusEmoji, setEmoji] = useState<string>('👽');
 
     useEffect(() => {
@@ -29,6 +27,15 @@ export default function AppCard(props: App) {
         emoji.then(value => {
             setEmoji(value);
         })
+        try {
+            const tempIcon = AppIcons(props);
+            tempIcon.then(value =>{
+                setIcon(value);
+            })
+        } catch (error) {
+            setIcon("https://raw.githubusercontent.com/google/material-design-icons/master/png/alert/error/materialiconsround/48dp/2x/round_error_black_48dp.png")
+            
+        }
         // const color = average(icon, { sample: 100, amount: 1, format: 'array' });
         // color.then(value => {
         //     setbgColor((value));
@@ -40,11 +47,12 @@ export default function AppCard(props: App) {
 
     return (
 
-            <div className={style.AppCard} onClick={() => {
-                window.open(props.appurl, '_blank');
-            }}>
-                <Image src={AppIcons(props)} width="20" height="20" layout="fixed" alt={props.appname}/>
-                <p><b>{props.appname} {statusEmoji}</b></p>
+        <div className={style.AppCard} onClick={() => {
+            window.open(props.appurl, '_blank');
+        }}>
+            {/* <Image src={AppIcons(props)} width="20" height="20" layout="fixed" alt={props.appname}/> */}
+            <img src={icon} alt='' className={style.icon} />
+            <p><b>{props.appname} {statusEmoji}</b></p>
         </div>
     );
 }
