@@ -8,7 +8,8 @@ import { useEffect } from "react";
 import Image from 'next/future/image';
 import Link from 'next/link'
 import {useBackgroundStore} from '../components/store/store'
-
+import { MdSettings } from "react-icons/md";
+import {MdHome} from "react-icons/md"
 // const styles = {
 //   paperContainer: {
 //     backgroundImage: `url(${})`
@@ -25,7 +26,8 @@ const Home: NextPage = () => {
   }, []);
   return (
   <main className={style.main}>
-    
+              <Image src={'https://is2.4chan.org/wg/1655090288638.jpg'}  alt='alt text lol' className={style.background}/>
+
       <div className={style.mainStack}>
         <Head>
           <title>Dashboard</title>
@@ -35,20 +37,19 @@ const Home: NextPage = () => {
             <h1 className={style.pageName}>New BeMOre Dashboard</h1>
             <h2 className={style.headerLinks}><Link href={'/settings'}>settings</Link></h2>
           </header> */}
-          <Image src={'https://is2.4chan.org/wg/1655090288638.jpg'}  alt='alt text lol' className={style.gallery}/>
         <AppGrid />
         <div className={style.sidebar}>
           <ul>
-          <li>
-            <Link href="/settings">
-            <b>To Settings</b>
-                  </Link>
-          </li>
         <li>
           <Link href="/">
-            <b>To main</b>
+            <MdHome/>
           </Link>
         </li>
+          <li>
+            <Link href="/settings">
+            <MdSettings/>
+                  </Link>
+          </li>
           </ul>
         </div>
     
