@@ -3,6 +3,7 @@ import AppIcons from '../../pages/api/AppIcons';
 import style from '../AppCard/AppCard.module.css'
 import type App from '../Types/App'
 import OnlineIndicator from '../../pages/api/OnlineIndicator';
+import whoami from '../../pages/api/whoami';
 
 function componentToHex(c: number) {
     const hex: string = c.toString(16);
@@ -16,7 +17,6 @@ function rgbToHex(r: number, g: number, b: number) {
 
 
 export default function AppCard(props: App) {
-
     // const [bgColor, setbgColor] = useState<[number, number, number]>([1, 1, 1]);
     const [icon, setIcon] = useState("https://raw.githubusercontent.com/google/material-design-icons/master/png/alert/error/materialiconsround/48dp/2x/round_error_black_48dp.png");
     const [statusEmoji, setEmoji] = useState<string>('👽');
@@ -51,7 +51,7 @@ export default function AppCard(props: App) {
             window.open(props.appurl, '_blank');
         }}>
             {/* <Image src={AppIcons(props)} width="20" height="20" layout="fixed" alt={props.appname}/> */}
-            <img src={icon} alt='' className={style.icon} />
+            {/* <img src={icon} alt='' className={style.icon} /> */}
             <p><b>{props.appname} {statusEmoji}</b></p>
         </div>
     );
